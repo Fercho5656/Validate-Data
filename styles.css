@@ -1,18 +1,38 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+main {
+  width: 100%;
+  max-width: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #eee;
 }
 
 .form-control {
-    width: 100%;
-    height: 100%;
-    background-color: #f5f5f5;
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 5px 20px;
-    transition: all 0.2s linear;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 5px 20px;
+  transition: all 0.2s linear;
 }
 
 input,
@@ -30,20 +50,43 @@ textarea {
   box-sizing: border-box;
 }
 
-input:focus,
+input:not([type="checkbox"]):focus,
 textarea:focus {
   outline: none;
   border-color: #9ecaed;
   box-shadow: 0 0 10px #9ecaed;
 }
 
-input.error {
+input.error,
+select.error {
   border: 1px solid red;
 }
 
 input[type="checkbox"] {
-  width: auto;
-  margin-right: 10px;
+  --size: 25px;
+  appearance: none;
+  display: flex;
+  justify-content: flex-start;
+  width: calc(var(--size) * 2);
+  height: var(--size);
+  border-radius: 100px;
+  background-color: gainsboro;
+  transition: background-color 0.2s linear;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #04a9f1;
+  justify-content: flex-end;
+}
+
+input[type="checkbox"]::after {
+  position: absolute;
+  content: "";
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid gainsboro;
 }
 
 select {
@@ -65,19 +108,18 @@ option {
   letter-spacing: 1px;
 }
 
-
 button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #54a8ec;
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: 1px;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #54a8ec;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #3f8cc9;
+  background-color: #3f8cc9;
 }
